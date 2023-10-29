@@ -57,19 +57,20 @@ from pprint import pprint
 import string
 import random
 
-
+# Generate a Random ID for Admin User Id
 def get_random_id(size=3, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
-
+# Get Swagger Client
 def get_client(configuration):
     client = swagger_client.ApiClient(configuration)
     client.set_default_header("X-XSRF-Header", "41A65048-D2CE-4A8B-ACF0-D8D1C7547215")
     client.set_default_header("Authorization", configuration.get_basic_auth_token())
     return client
 
-
+# Get PF Version
 def get_version(client):
+    # create an instance of the API class
     api_instance = swagger_client.VersionApi(client)
 
     try:
@@ -92,7 +93,7 @@ def create_admin_account(client,
                          roles=[]):
     # create an instance of the API class
     admin_account_api = swagger_client.AdministrativeAccountsApi(api_client=client)
-    # AdministrativeAccount | Administrative account information.
+
     request = swagger_client.AdministrativeAccount(
         username=username,
         password=password,
@@ -104,7 +105,7 @@ def create_admin_account(client,
     )
 
     try:
-        # Add a new PingFederate native Administrative Account.
+        # Add a new PingFederate native Administrative Account
         response = admin_account_api.add_account(request)
         return response
     except ApiException as e:
@@ -112,12 +113,11 @@ def create_admin_account(client,
         exit(-1)
 
 
-# Get all the PingFederate native Administrative Accounts.
+# Get all the PingFederate native Administrative Accounts
 def get_admin_account_list(client):
     # create an instance of the API class
     admin_account_api = swagger_client.AdministrativeAccountsApi(api_client=client)
     try:
-        # Add a new PingFederate native Administrative Account.
         response = admin_account_api.get_accounts()
         return response
     except ApiException as e:
