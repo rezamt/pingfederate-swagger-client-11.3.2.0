@@ -1,0 +1,51 @@
+# DynamicClientRegistration
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**initial_access_token_scope** | **str** | The initial access token to prevent unwanted client registrations. | [optional] 
+**restrict_common_scopes** | **bool** | Restrict common scopes. | [optional] 
+**restricted_common_scopes** | **list[str]** | The common scopes to restrict. | [optional] 
+**allowed_exclusive_scopes** | **list[str]** | The exclusive scopes to allow. | [optional] 
+**allowed_authorization_detail_types** | **list[str]** | The authorization detail types to allow. | [optional] 
+**enforce_replay_prevention** | **bool** | Enforce replay prevention. | [optional] 
+**require_signed_requests** | **bool** | Require signed requests. | [optional] 
+**default_access_token_manager_ref** | [**ResourceLink**](ResourceLink.md) | The default access token manager for this client. | [optional] 
+**restrict_to_default_access_token_manager** | **bool** | Determines whether the client is restricted to using only its default access token manager. The default is false. | [optional] 
+**persistent_grant_expiration_type** | **str** | Allows an administrator to override the Persistent Grant Lifetime set globally for the OAuth AS. Defaults to SERVER_DEFAULT. | [optional] 
+**persistent_grant_expiration_time** | **int** | The persistent grant expiration time. | [optional] 
+**persistent_grant_expiration_time_unit** | **str** | The persistent grant expiration time unit. | [optional] 
+**persistent_grant_idle_timeout_type** | **str** | Allows an administrator to override the Persistent Grant Idle Timeout set globally for the OAuth AS. Defaults to SERVER_DEFAULT. | [optional] 
+**persistent_grant_idle_timeout** | **int** | The persistent grant idle timeout. | [optional] 
+**persistent_grant_idle_timeout_time_unit** | **str** | The persistent grant idle timeout time unit. | [optional] 
+**client_cert_issuer_type** | **str** | Client TLS Certificate Issuer Type. | [optional] 
+**client_cert_issuer_ref** | [**ResourceLink**](ResourceLink.md) | Client TLS Certificate Issuer DN. | [optional] 
+**refresh_rolling** | **str** | Use ROLL or DONT_ROLL to override the Roll Refresh Token Values setting on the Authorization Server Settings. SERVER_DEFAULT will default to the Roll Refresh Token Values setting on the Authorization Server Setting screen. Defaults to SERVER_DEFAULT. | [optional] 
+**refresh_token_rolling_interval_type** | **str** | Use OVERRIDE_SERVER_DEFAULT to override the Refresh Token Rolling Interval value on the Authorization Server Settings. SERVER_DEFAULT will default to the Refresh Token Rolling Interval value on the Authorization Server Setting. Defaults to SERVER_DEFAULT. | [optional] 
+**refresh_token_rolling_interval** | **int** | The minimum interval to roll refresh tokens, in hours. This value will override the Refresh Token Rolling Interval Value on the Authorization Server Settings. | [optional] 
+**oidc_policy** | [**ClientRegistrationOIDCPolicy**](ClientRegistrationOIDCPolicy.md) | Open ID Connect Policy settings.  This is included in the message only when OIDC is enabled. | [optional] 
+**policy_refs** | [**list[ResourceLink]**](ResourceLink.md) | The client registration policies. | [optional] 
+**device_flow_setting_type** | **str** | Allows an administrator to override the Device Authorization Settings set globally for the OAuth AS. Defaults to SERVER_DEFAULT. | [optional] 
+**user_authorization_url_override** | **str** | The URL is used as &#39;verification_url&#39; and &#39;verification_url_complete&#39; values in a Device Authorization request. | [optional] 
+**pending_authorization_timeout_override** | **int** | The &#39;device_code&#39; and &#39;user_code&#39; timeout, in seconds. | [optional] 
+**device_polling_interval_override** | **int** | The amount of time client should wait between polling requests, in seconds. | [optional] 
+**bypass_activation_code_confirmation_override** | **bool** | Indicates if the Activation Code Confirmation page should be bypassed if &#39;verification_url_complete&#39; is used by the end user to authorize a device. | [optional] 
+**require_proof_key_for_code_exchange** | **bool** | Determines whether Proof Key for Code Exchange (PKCE) is required for the dynamically created client. | [optional] 
+**ciba_polling_interval** | **int** | The minimum amount of time in seconds that the Client must wait between polling requests to the token endpoint. The default is 3 seconds. | [optional] 
+**ciba_require_signed_requests** | **bool** | Determines whether CIBA signed requests are required for this client. | [optional] 
+**request_policy_ref** | [**ResourceLink**](ResourceLink.md) | The CIBA request policy. | [optional] 
+**token_exchange_processor_policy_ref** | [**ResourceLink**](ResourceLink.md) | The Token Exchange Processor policy. | [optional] 
+**rotate_client_secret** | **bool** | Rotate registration access token on dynamic client management requests. | [optional] 
+**rotate_registration_access_token** | **bool** | Rotate client secret on dynamic client management requests. | [optional] 
+**allow_client_delete** | **bool** | Allow client deletion from dynamic client management. | [optional] 
+**disable_registration_access_tokens** | **bool** | Disable registration access tokens. Local standards may mandate different registration access token requirements. If applicable, implement custom validation and enforcement rules using the DynamicClientRegistrationPlugin interface from the PingFederate SDK, configure the client registration policies (policyRefs), and set this property (disableRegistrationAccessTokens) to true. CAUTION: When the disableRegistrationAccessTokens property is set to true, all clients, not just the ones created using the Dynamic Client Registration protocol, are vulnerable to unrestricted retrievals, updates (including modifications to the client authentication scheme and redirect URIs), and deletes at the /as/clients.oauth2 endpoint unless one or more client registration policies are in place to protect against unauthorized attempts. | [optional] 
+**refresh_token_rolling_grace_period_type** | **str** | When specified, it overrides the global Refresh Token Grace Period defined in the Authorization Server Settings. The default value is SERVER_DEFAULT | [optional] 
+**refresh_token_rolling_grace_period** | **int** | The grace period that a rolled refresh token remains valid in seconds. | [optional] 
+**retain_client_secret** | **bool** | Temporarily retain the old client secret on client secret change. | [optional] 
+**client_secret_retention_period_type** | **str** | Use OVERRIDE_SERVER_DEFAULT to override the Client Secret Retention Period value on the Authorization Server Settings. SERVER_DEFAULT will default to the Client Secret Retention Period value on the Authorization Server Setting. Defaults to SERVER_DEFAULT. | [optional] 
+**client_secret_retention_period_override** | **int** | The length of time in minutes that client secrets will be retained as secondary secrets after secret change. The default value is 0, which will disable secondary client secret retention. This value will override the Client Secret Retention Period value on the Authorization Server Settings. | [optional] 
+**require_jwt_secured_authorization_response_mode** | **bool** | Determines whether JWT Secured authorization response mode is required when initiating an authorization request. The default is false. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

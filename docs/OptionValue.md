@@ -1,0 +1,11 @@
+# OptionValue
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **str** | The name of the option. | [optional] 
+**value** | **str** | The value associated with this option. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
